@@ -1,24 +1,36 @@
 {
-  "name": "framework",
+  "name": "playwright-framework",
   "version": "1.0.0",
-  "description": "",
+  "description": "Enterprise Playwright Automation Framework",
   "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "commonjs",
+
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:ui": "playwright test --ui",
+
+    "report": "allure generate allure-results --clean -o allure-report",
+    "open-report": "allure open allure-report",
+
+    "ci": "playwright test"
+  },
+
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "winston": "^3.19.0"
+  },
+
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "@types/node": "^26.0.1",
     "allure-commandline": "^2.43.0",
     "allure-playwright": "^3.10.1"
   },
-  "dependencies": {
-    "dotenv": "^17.4.2",
-    "winston": "^3.19.0"
-  }
+
+  "keywords": ["playwright", "automation", "testing", "framework"],
+  "author": "",
+  "license": "ISC"
 }
