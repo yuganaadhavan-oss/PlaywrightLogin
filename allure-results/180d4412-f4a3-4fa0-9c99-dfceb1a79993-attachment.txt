@@ -1,0 +1,4 @@
+info: Test Started
+info: Opened Application
+info: Login performed
+info: Test Completed
