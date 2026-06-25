@@ -1,6 +1,15 @@
+const fs = require('fs');
+const path = require('path');
+
+const screenshotDir = path.join(__dirname, '..', 'screenshots');
+
+if (!fs.existsSync(screenshotDir)) {
+    fs.mkdirSync(screenshotDir, { recursive: true });
+}
+
 async function takeScreenshot(page, name) {
     await page.screenshot({
-        path: `screenshots/${name}.png`,
+        path: path.join(screenshotDir, `${name}.png`),
         fullPage: true
     });
 }
