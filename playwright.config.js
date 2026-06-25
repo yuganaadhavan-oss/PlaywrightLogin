@@ -11,7 +11,10 @@ module.exports = defineConfig({
 
     use: {
         browserName: 'chromium',
-        headless: false,
+        headless: process.env.CI === 'true',
+        launchOptions: {
+            args: process.env.CI === 'true' ? ['--no-sandbox', '--disable-setuid-sandbox'] : []
+        },
 
         screenshot: 'only-on-failure',
         trace: 'on-first-retry',
